@@ -1,0 +1,309 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:PCB_JOSE_despues_trafo-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L D D1
+U 1 1 5AD7963C
+P 3650 2000
+F 0 "D1" H 3650 2100 50  0000 C CNN
+F 1 "D" H 3650 1900 50  0000 C CNN
+F 2 "Diodes_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 3650 2000 50  0001 C CNN
+F 3 "" H 3650 2000 50  0000 C CNN
+	1    3650 2000
+	-1   0    0    1   
+$EndComp
+$Comp
+L D D2
+U 1 1 5AD7968B
+P 3700 2800
+F 0 "D2" H 3700 2900 50  0000 C CNN
+F 1 "D" H 3700 2700 50  0000 C CNN
+F 2 "Diodes_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 3700 2800 50  0001 C CNN
+F 3 "" H 3700 2800 50  0000 C CNN
+	1    3700 2800
+	-1   0    0    1   
+$EndComp
+$Comp
+L ZENER D3
+U 1 1 5AD796B5
+P 4600 3000
+F 0 "D3" H 4600 3100 50  0000 C CNN
+F 1 "ZENER" H 4600 2900 50  0000 C CNN
+F 2 "Diodes_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 4600 3000 50  0001 C CNN
+F 3 "" H 4600 3000 50  0000 C CNN
+	1    4600 3000
+	0    1    1    0   
+$EndComp
+$Comp
+L C C1
+U 1 1 5AD7975A
+P 3850 1600
+F 0 "C1" H 3875 1700 50  0000 L CNN
+F 1 "C" H 3875 1500 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:CP_Radial_D6.3mm_P2.50mm" H 3888 1450 50  0001 C CNN
+F 3 "" H 3850 1600 50  0000 C CNN
+	1    3850 1600
+	0    1    1    0   
+$EndComp
+$Comp
+L C C4
+U 1 1 5AD797DA
+P 4200 2150
+F 0 "C4" H 4225 2250 50  0000 L CNN
+F 1 "C" H 4225 2050 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:CP_Radial_D6.3mm_P2.50mm" H 4238 2000 50  0001 C CNN
+F 3 "" H 4200 2150 50  0000 C CNN
+	1    4200 2150
+	-1   0    0    1   
+$EndComp
+$Comp
+L C C5
+U 1 1 5AD79818
+P 4550 2150
+F 0 "C5" H 4575 2250 50  0000 L CNN
+F 1 "C" H 4575 2050 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:CP_Radial_D6.3mm_P2.50mm" H 4588 2000 50  0001 C CNN
+F 3 "" H 4550 2150 50  0000 C CNN
+	1    4550 2150
+	-1   0    0    1   
+$EndComp
+$Comp
+L C C3
+U 1 1 5AD79845
+P 4100 3000
+F 0 "C3" H 4125 3100 50  0000 L CNN
+F 1 "C" H 4125 2900 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:CP_Radial_D6.3mm_P2.50mm" H 4138 2850 50  0001 C CNN
+F 3 "" H 4100 3000 50  0000 C CNN
+	1    4100 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R1
+U 1 1 5AD79985
+P 3450 1600
+F 0 "R1" V 3530 1600 50  0000 C CNN
+F 1 "R" V 3450 1600 50  0000 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3380 1600 50  0001 C CNN
+F 3 "" H 3450 1600 50  0000 C CNN
+	1    3450 1600
+	0    1    1    0   
+$EndComp
+$Comp
+L R R2
+U 1 1 5AD799D8
+P 3450 2500
+F 0 "R2" V 3530 2500 50  0000 C CNN
+F 1 "R" V 3450 2500 50  0000 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3380 2500 50  0001 C CNN
+F 3 "" H 3450 2500 50  0000 C CNN
+	1    3450 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L C C2
+U 1 1 5AD79A28
+P 3900 2500
+F 0 "C2" H 3925 2600 50  0000 L CNN
+F 1 "C" H 3925 2400 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:CP_Radial_D6.3mm_P2.50mm" H 3938 2350 50  0001 C CNN
+F 3 "" H 3900 2500 50  0000 C CNN
+	1    3900 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_01X02 P1
+U 1 1 5AD7B354
+P 5100 3000
+F 0 "P1" H 5100 3150 50  0000 C CNN
+F 1 "CONN_01X02" V 5200 3000 50  0000 C CNN
+F 2 "Connectors:bornier2" H 5100 3000 50  0001 C CNN
+F 3 "" H 5100 3000 50  0000 C CNN
+	1    5100 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x03 J3
+U 1 1 5AE1EDCD
+P 5550 2100
+F 0 "J3" H 5550 2300 50  0000 C CNN
+F 1 "Conn_01x03" H 5550 1900 50  0000 C CNN
+F 2 "Connectors:bornier3" H 5550 2100 50  0001 C CNN
+F 3 "" H 5550 2100 50  0001 C CNN
+	1    5550 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_01x01 J2
+U 1 1 5AE1F1A0
+P 4350 2500
+F 0 "J2" H 4350 2600 50  0000 C CNN
+F 1 "Conn_01x01" H 4350 2400 50  0000 C CNN
+F 2 "Connectors:PINTST" H 4350 2500 50  0001 C CNN
+F 3 "" H 4350 2500 50  0001 C CNN
+	1    4350 2500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2800 2000 3500 2000
+Wire Wire Line
+	3300 2000 3300 1600
+Connection ~ 3300 2000
+Wire Wire Line
+	3600 1600 3700 1600
+Wire Wire Line
+	2500 2300 5250 2300
+Wire Wire Line
+	4550 2300 4550 2250
+Wire Wire Line
+	4200 2300 4200 2250
+Connection ~ 4550 2300
+Connection ~ 4200 2300
+Wire Wire Line
+	2800 2500 3300 2500
+Wire Wire Line
+	3550 2800 3250 2800
+Wire Wire Line
+	3250 2800 3250 2500
+Connection ~ 3250 2500
+Wire Wire Line
+	3850 2800 4900 2800
+Connection ~ 4100 2800
+Connection ~ 4600 2800
+Wire Wire Line
+	2800 3200 4900 3200
+Wire Wire Line
+	4100 3200 4100 3150
+Wire Wire Line
+	2800 2600 2800 3200
+Wire Wire Line
+	3800 2000 5200 2000
+Connection ~ 4200 2000
+Connection ~ 4550 2000
+Wire Wire Line
+	4000 1600 4200 1600
+Wire Wire Line
+	4200 1600 4200 2000
+Wire Wire Line
+	4050 2500 4100 2500
+Wire Wire Line
+	3600 2500 3750 2500
+Wire Wire Line
+	4900 2800 4900 2950
+Wire Wire Line
+	4900 3200 4900 3050
+Connection ~ 4600 3200
+Connection ~ 4100 3200
+Wire Wire Line
+	5100 2100 5350 2100
+Wire Wire Line
+	5100 2100 5100 2000
+Connection ~ 5100 2000
+Wire Wire Line
+	4100 2500 4100 2850
+Wire Wire Line
+	2800 2250 2800 2000
+Wire Wire Line
+	2800 2350 2800 2500
+Wire Wire Line
+	2350 2350 2800 2350
+Wire Wire Line
+	2800 2600 2650 2600
+Wire Wire Line
+	2650 2600 2650 2450
+Wire Wire Line
+	2650 2450 2450 2450
+Wire Wire Line
+	4550 2500 4550 2800
+Connection ~ 4550 2800
+Wire Wire Line
+	2350 2250 2800 2250
+Wire Wire Line
+	2500 2150 2500 2300
+Wire Wire Line
+	2350 2150 2500 2150
+Wire Wire Line
+	5250 2300 5250 2400
+Wire Wire Line
+	5250 2400 5800 2400
+Wire Wire Line
+	5800 2400 5800 1850
+Wire Wire Line
+	5800 1850 5350 1850
+Wire Wire Line
+	5350 1850 5350 2000
+Wire Wire Line
+	5350 2200 5200 2200
+Wire Wire Line
+	5200 2200 5200 2000
+$Comp
+L CONN_01X02 P2
+U 1 1 5AE1F6A5
+P 2150 2200
+F 0 "P2" H 2150 2350 50  0000 C CNN
+F 1 "CONN_01X02" V 2250 2200 50  0000 C CNN
+F 2 "Connectors:bornier2" H 2150 2200 50  0001 C CNN
+F 3 "" H 2150 2200 50  0000 C CNN
+	1    2150 2200
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_01X02 P3
+U 1 1 5AE1F706
+P 2150 2550
+F 0 "P3" H 2150 2700 50  0000 C CNN
+F 1 "CONN_01X02" V 2250 2550 50  0000 C CNN
+F 2 "Connectors:bornier2" H 2150 2550 50  0001 C CNN
+F 3 "" H 2150 2550 50  0000 C CNN
+	1    2150 2550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2350 2350 2350 2500
+Wire Wire Line
+	2450 2450 2450 2600
+Wire Wire Line
+	2450 2600 2350 2600
+$EndSCHEMATC
