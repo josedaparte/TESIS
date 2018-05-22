@@ -118,7 +118,7 @@ reference "fig:Selección-de-IC"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -144,6 +144,370 @@ name "fig:Selección-de-IC"
 \end_inset
 
 Selección de IC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El circuito interno del integrado se presenta en la Fig.
+ , en el se puede observar el funcionamiento de UVLO, que esta dado por
+ un comparador con una ventana de histeresis, la tensión de alimentación
+ se compara con este, por debajo del valor se resetea la referencia de 5V
+ inhabilitando el PWM.
+ La ventana de histeresis previene las oscilaciones durante el ciclo de
+ encendido.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes_documento/Esquema_UC3842.PNG
+	lyxscale 50
+	scale 62
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema interno UC3842
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-interno-UC3842"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+************* Ver en la nota de aplicación el circuito de encendido que
+ sale en el esquema para ver si cambio el que hizo el pela**********************
+****************************
+\end_layout
+
+\begin_layout Subsection
+Oscilador
+\end_layout
+
+\begin_layout Standard
+El oscilador es configurado segun se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conexión-oscilador"
+
+\end_inset
+
+, el capacitor CT de timing es cargado por 
+\begin_inset Formula $V_{ref}=5V$
+\end_inset
+
+ a través del resistor RT y descargado internamente por una fuente de corriente.
+ La frecuencia de oscilación viene dada por la siguiente ecuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Fosc\,(KHz)=1.72/RT(K\varOmega)*CT(\mu F)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se selecciona 
+\begin_inset Formula $CT=2.2nF$
+\end_inset
+
+, 
+\begin_inset Formula $RT=10K\varOmega$
+\end_inset
+
+ obteniendose una 
+\begin_inset Formula $Fosc=78.18KHz$
+\end_inset
+
+, recordando que nunca se debe utilizar un resistor de valor 
+\begin_inset Formula $RT>5K\varOmega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes_documento/circuito_oscilador.PNG
+	lyxscale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Conexión oscilador
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Conexión-oscilador"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sensor y limitador de corriente
+\end_layout
+
+\begin_layout Standard
+El sensor y limitador de corriente del integrado se conecta como se muestra
+ en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:limitador-corriente"
+
+\end_inset
+
+, se realiza la conversión de corriente a voltaje externamente con la resistenci
+a
+\begin_inset Formula $R_{s}$
+\end_inset
+
+, la cual esta referenciada a masa
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito sensor y limitador de corriente
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:limitador-corriente"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Amplificador de error
+\end_layout
+
+\begin_layout Standard
+La configuración del amplificador de error es la que se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Amplificador-de-error"
+
+\end_inset
+
+.
+ La entrada no inversora no es accesible desde afuera del integrado, esta
+ esta compensada internamente con 
+\begin_inset Formula $2.5V$
+\end_inset
+
+.
+ La salida del E/A esta disponible externamente en el pin 1 para realizar
+ compensación externa y controlar la respuesta en frecuencia (filtro RC
+ paralelo), la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "compensacion-EA"
+
+\end_inset
+
+ muestra el circuito típico para compensar esto, esta forma de compensar
+ no funciona para conversores flyback ni boost que operan con corriente
+ de inducción.
+ Se añade un polo a la función de transferencia a la frecuencia de 
+\begin_inset Formula $f_{p}=1/2\pi R_{f}C_{f}$
+\end_inset
+
+.
+ Este polo es escogido para para que cancele el cero del filtro de salida
+ de potencia con la ESR del capacitor.
+\end_layout
+
+\begin_layout Verbatim
+Ver lo de que el modo de compensar que puse recien no funciona.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $R_{f}$
+\end_inset
+
+ fijan la ganancia en baja frecuencia, los valores se eligen para proveer
+ tanta ganancia como sea posible mientras lo permita el polo por el capacitor
+ de filtro de salida y la carga para llevar el roll off a 
+\begin_inset Formula $0dB$
+\end_inset
+
+ a frecuencia 
+\begin_inset Formula $f=f_{switch}/4$
+\end_inset
+
+.
+ Esta técnica le asegura estabilidad al conversor y una buena respuesta
+ dinámica.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes_documento/amp-error-coneccion.PNG
+	lyxscale 50
+	scale 70
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Amplificador de error
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Amplificador-de-error"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes_documento/Amplificador-error.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Compensación respuesta en frecuencia
+\begin_inset CommandInset label
+LatexCommand label
+name "compensacion-EA"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

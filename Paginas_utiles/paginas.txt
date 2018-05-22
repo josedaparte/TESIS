@@ -1,0 +1,1 @@
+http://www.ti.com/product/UC3842   ---tiene el datasheet y muchas notas de aplicacion del uc3842
