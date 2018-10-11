@@ -1,0 +1,172 @@
+
+**** 09/27/18 17:36:55 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sim"  [ D:\Usuarios\josed\Documents\TESIS\Simulaciones\adsdsa-PSpiceFiles\SCHEMATIC1\sim.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of D:\Usuarios\josed\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 0.1s 0.05s 0.5u 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source ADSDSA
+V_V1         N00337 0 220
+V_V2         N00403 0  
++PULSE 0 5 0 1n 1n 8u 10u
+M_M1         N00365 N00403 0 0 IRFP460
+L_L1         N00337 N00365  350uH  
+L_L2         0 N00743  350uH  
+D_D1         N00743 N00765 MUR860 
+C_C1         0 N00765  10u  TC=0,0 
+R_R1         0 N00765  1k TC=0,0 
+Kn_K1         L_L1 L_L2     1
+
+**** RESUMING sim.cir ****
+.END
+
+**** 09/27/18 17:36:55 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sim"  [ D:\Usuarios\josed\Documents\TESIS\Simulaciones\adsdsa-PSpiceFiles\SCHEMATIC1\sim.sim ] 
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MUR860          
+          IS  853.700000E-15 
+         ISR  217.500000E-09 
+         IKF     .02156      
+          RS     .04135      
+          TT  123.300000E-09 
+         CJO  367.000000E-12 
+          VJ     .75         
+           M     .4068       
+
+
+**** 09/27/18 17:36:55 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sim"  [ D:\Usuarios\josed\Documents\TESIS\Simulaciones\adsdsa-PSpiceFiles\SCHEMATIC1\sim.sim ] 
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IRFP460         
+               NMOS            
+       LEVEL    3            
+           L    2.000000E-06 
+           W    1.9          
+         VTO    3.248        
+          KP   20.650000E-06 
+       GAMMA    0            
+         PHI     .6          
+      LAMBDA    0            
+          RD     .2303       
+          RS    2.041000E-03 
+          RG    1.556        
+         RDS    2.222000E+06 
+          IS   96.300000E-12 
+          JS    0            
+          PB     .8          
+        PBSW     .8          
+         CBD    5.156000E-09 
+          CJ    0            
+        CJSW    0            
+          TT  670.000000E-09 
+        CGSO    1.947000E-09 
+        CGDO  135.800000E-12 
+        CGBO    0            
+         TOX  100.000000E-09 
+          XJ    0            
+       UCRIT   10.000000E+03 
+       DELTA    0            
+         ETA    0            
+      DIOMOD    1            
+         VFB    0            
+        LETA    0            
+        WETA    0            
+          U0    0            
+        TEMP    0            
+         VDD    5            
+       XPART    0            
+
+
+**** 09/27/18 17:36:55 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sim"  [ D:\Usuarios\josed\Documents\TESIS\Simulaciones\adsdsa-PSpiceFiles\SCHEMATIC1\sim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00337)  220.0000 (N00365)  220.0000 (N00403)    0.0000 (N00743)    0.0000     
+
+(N00765)-928.0E-24 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -9.901E-05
+    V_V2         0.000E+00
+
+    TOTAL POWER DISSIPATION   2.18E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 09/27/18 17:36:55 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sim"  [ D:\Usuarios\josed\Documents\TESIS\Simulaciones\adsdsa-PSpiceFiles\SCHEMATIC1\sim.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =       11.70
+

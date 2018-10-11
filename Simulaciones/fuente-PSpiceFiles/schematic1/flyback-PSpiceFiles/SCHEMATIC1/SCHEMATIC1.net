@@ -1,0 +1,19 @@
+* source FLYBACK
+V_Vin         N02665 0 DC 220 AC 0Vac 
+V_V2         N09380 0  
++PULSE 0 10 0 1n 1n 6u 20u
+R_Rload         0 N03612  {load}  
+X_TX1    N02665 N09355 N03626 0 SCHEMATIC1_TX1 
+D_D1         N03626 N03612 Dbreak 
+C_C1         N03612 0  100u  
+X_M1         N09355 N09380 0 IRF840AL
+R_R1         N09589 N02665  18k  
+C_C2         N09589 N02665  47n  TC=0,0 
+D_D2         N09355 N09589 MUR860 
+.PARAM  load=10
+
+.subckt SCHEMATIC1_TX1 1 2 3 4  
+K_TX1         L1_TX1 L2_TX1 .99
+L1_TX1         1 2 1u
+L2_TX1         4 3 0.5u
+.ends SCHEMATIC1_TX1

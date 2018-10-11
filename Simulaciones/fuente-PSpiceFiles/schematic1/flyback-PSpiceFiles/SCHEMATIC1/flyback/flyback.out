@@ -1,0 +1,195 @@
+
+**** 07/30/18 18:01:41 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-flyback"  [ D:\Usuarios\josed\Documents\facu\Facu-5\potencia\DVD_Potencia2016\Diapositivas\PSPICE_cap_5\flyb
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "flyback.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of D:\Usuarios\josed\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 3m 2.5m 
+.STEP PARAM load LIST 10 
+.OPTIONS ADVCONV
+.PROBE64 V(*) I(*) W(*) D(*) NOISE(*) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source FLYBACK
+V_Vin         N02665 0 DC 220 AC 0Vac 
+V_V2         N09380 0  
++PULSE 0 10 0 1n 1n 6u 20u
+R_Rload         0 N03612  {load}  
+X_TX1    N02665 N09355 N03626 0 SCHEMATIC1_TX1 
+D_D1         N03626 N03612 Dbreak 
+C_C1         N03612 0  100u  
+X_M1         N09355 N09380 0 IRF840AL
+R_R1         N09589 N02665  18k  
+C_C2         N09589 N02665  47n  TC=0,0 
+D_D2         N09355 N09589 MUR860 
+.PARAM  load=10
+
+.subckt SCHEMATIC1_TX1 1 2 3 4  
+K_TX1         L1_TX1 L2_TX1 .99
+L1_TX1         1 2 1u
+L2_TX1         4 3 0.5u
+.ends SCHEMATIC1_TX1
+
+**** RESUMING flyback.cir ****
+.END
+
+**** 07/30/18 18:01:41 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-flyback"  [ D:\Usuarios\josed\Documents\facu\Facu-5\potencia\DVD_Potencia2016\Diapositivas\PSPICE_cap_5\flyb
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Dbreak          MUR860          X_M1.MD         X_M1.MD1        
+          IS   10.000000E-15  853.700000E-15    5.299460E-09    0            
+           N                                    1.40079        50            
+         ISR                  217.500000E-09                                 
+         IKF                     .02156                                      
+          BV                                  500                            
+         IBV                                  250.000000E-06                 
+          RS     .1              .04135          .013158                     
+          TT                  123.300000E-09  100.000000E-06                 
+         CJO  100.000000E-15  367.000000E-12    6.253300E-09    1.355520E-09 
+          VJ                     .75             .050996         .788236     
+           M                     .4068           .573564         .9          
+          FC                                                   10.000000E-09 
+          EG                                    1.2                          
+         XTI                                    3.10542                      
+
+
+               X_M1.MD2        X_M1.MD3        
+          IS  100.000000E-12  100.000000E-12 
+           N    1.42412         1.42412      
+          RS    3.000210E-06                 
+
+
+**** 07/30/18 18:01:41 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-flyback"  [ D:\Usuarios\josed\Documents\facu\Facu-5\potencia\DVD_Potencia2016\Diapositivas\PSPICE_cap_5\flyb
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.MM         
+               NMOS            
+       LEVEL    1            
+           L  100.000000E-06 
+           W  100.000000E-06 
+         VTO    3.96613      
+          KP    2.41278      
+       GAMMA    0            
+         PHI     .6          
+      LAMBDA     .013366     
+          IS    0            
+          JS    0            
+          PB     .8          
+        PBSW     .8          
+          CJ    0            
+        CJSW    0            
+        CGSO    7.920850E-06 
+        CGDO   26.568100E-09 
+        CGBO    0            
+         TOX    0            
+          XJ    0            
+       UCRIT   10.000000E+03 
+      DIOMOD    1            
+         VFB    0            
+        LETA    0            
+        WETA    0            
+          U0    0            
+        TEMP    0            
+         VDD    5            
+       XPART    0            
+
+
+**** 07/30/18 18:01:41 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-flyback"  [ D:\Usuarios\josed\Documents\facu\Facu-5\potencia\DVD_Potencia2016\Diapositivas\PSPICE_cap_5\flyb
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM LOAD =   10    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N02665)  220.0000 (N03612) 4.574E-30 (N03626)    0.0000 (N09355)  220.0000     
+
+(N09380)    0.0000 (N09589)  220.0000 (X_M1.4)    0.0000 (X_M1.5)  220.0000     
+
+(X_M1.6)  220.0000 (X_M1.7) 3.960E-09 (X_M1.8) 22.00E-15 (X_M1.9)  220.0000     
+
+(X_M1.10)  220.0000                   (X_M1.11)  220.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vin       -2.200E-04
+    V_V2         6.600E-10
+    X_M1.VFI2    2.200E-10
+    X_M1.VFI1    0.000E+00
+
+    TOTAL POWER DISSIPATION   4.84E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 07/30/18 18:01:41 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-flyback"  [ D:\Usuarios\josed\Documents\facu\Facu-5\potencia\DVD_Potencia2016\Diapositivas\PSPICE_cap_5\flyb
+
+
+ ****     JOB STATISTICS SUMMARY
+
+ ****     CURRENT STEP                     PARAM LOAD =   10    
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        6.73
+

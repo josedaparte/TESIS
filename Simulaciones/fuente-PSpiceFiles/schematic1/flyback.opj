@@ -1,0 +1,114 @@
+(ExpressProject "flyback"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\abm.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\abm.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\analog.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\analog.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\bipolar.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\bipolar.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\breakout.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\breakout.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\diode.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\diode.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\ebipolar.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\ebipolar.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\ediode.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\ediode.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\pwrmos.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\pwrmos.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\source.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\source.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\sourcstm.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\sourcstm.olb"))
+      (File "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\special.olb"
+        (Type "Schematic Library")
+        (DisplayName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\special.olb")))
+    (NoModify)
+    (File ".\flyback.DSN"
+      (Type "Schematic Design")
+      (DisplayName ".\flyback.DSN"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Outputs"
+    (File ".\flyback-PSpiceFiles\SCHEMATIC1\SCHEMATIC1.net"
+      (Type "Report")
+      (DisplayName ".\flyback-PSpiceFiles\SCHEMATIC1\SCHEMATIC1.net")))
+  (Folder "PSpice Resources"
+    (Folder "Model Libraries")
+    (Folder "Stimulus Files")
+    (Folder "Include Files")
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\flyback-pspicefiles\schematic1\flyback.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\flyback-pspicefiles\schematic1\flyback.sim"
+        (DisplayName "SCHEMATIC1-flyback")
+        (Type "PSpice Profile"))))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (MUR860
+      (FullPartName "MUR860.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\DIODE.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (IRF840AL
+      (FullPartName "IRF840AL.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\IRF.OLB")
+      (DeviceIndex "0"))
+    (IRF840
+      (FullPartName "IRF840.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\IRF.OLB")
+      (DeviceIndex "0"))
+    (S
+      (FullPartName "S.Normal")
+      (LibraryName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (XFRM_LINEAR
+      (FullPartName "XFRM_LINEAR.Normal")
+      (LibraryName "C:\UTI\ORCAD\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\flyback.DSN")
+      (Path "Design Resources" ".\flyback.DSN" "SCHEMATIC1")
+      (Path "Outputs"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 396 0 412"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 156 1394 156 471")
+        (Scroll "166 524")
+        (Zoom "200")
+        (Occurrence "/"))
+      (Path
+         "D:\USUARIOS\JOSED\DOCUMENTS\TESIS\SIMULACIONES\FUENTE-PSPICEFILES\SCHEMATIC1\FLYBACK.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "josed"))

@@ -1,0 +1,53 @@
+
+**** 09/27/18 17:15:02 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sim"  [ D:\Usuarios\josed\Documents\TESIS\Simulaciones\adsdsa-PSpiceFiles\SCHEMATIC1\sim.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of D:\Usuarios\josed\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 50us 0 0.1u 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source ADSDSA
+V_V1         N00337 0 220
+V_V2         N00403 0  
++PULSE 0 5 0 1n 1n 5u 10u
+M_M1         N00365 N00403 0 0 IRFP460
+L_L1         N00337 N00365  350uH  
+L_L2         GND_SIGNAL N00743  350uH  
+D_D1         N00743 N00765 MUR860 
+C_C1         GND_SIGNAL N00765  100u  TC=0,0 
+R_R1         GND_SIGNAL N00765  1k TC=0,0 
+Kn_K1         L_L1 L_L2     1
+
+**** RESUMING sim.cir ****
+.END
+
+ERROR(ORPSIM-15142): Node GND_SIGNAL is floating
+
+ERROR(ORPSIM-15142): Node N00743 is floating
+
+ERROR(ORPSIM-15142): Node N00765 is floating
+
