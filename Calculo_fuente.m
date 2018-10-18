@@ -1,25 +1,25 @@
 %control en modo corriente por picos
 % Declaracion de requerimientos
-Vin_min = 131;       % tensiones de entrada Vrms
-Vin_max = 265;
-Vin_nom = 220;
+Vin_min = 90;       % tensiones de entrada Vrms
+Vin_max = 460/sqrt(2);
+Vin_nom = 300/sqrt(2);
 
 fline_nom = 50;     %frecuencia de la linea Hz
 fline_min = 50;
 
-Vout_nom = 120;
-Iout_nom = 1.2;     %corriente de salida nominal A
-Vripple = 2;        % tension de ripple en V
+Vout_nom = 108;
+Iout_nom = 1;     %corriente de salida nominal A
+Vripple = 1;        % tension de ripple en V
 fsw = 100000;       %frecuencia de switch HZ
-rend = 0.85;        %rendimiento
-Rout = 100;
+rend = 0.9;        %rendimiento
+Rout = 108;
 %fin requerimentos
 
 %parametros dispositivos utilizados
-Vds_max = 650;      %del MOSFET
-Vf = 0.6;           %caida en el diodo en directa
-Vbulk_min = 125; % minima tension a la que se escarga el Cbulk
-Resr = 43e-3;       %Resistencia serie equivalente Cout
+Vds_max = 725;      %del MOSFET
+Vf = 0.7;           %caida en el diodo en directa
+Vbulk_min = 80; % minima tension a la que se escarga el Cbulk
+Resr = 1.59;       %Resistencia serie equivalente Cout
 %fin parametros dispositivos utilizados
 
 %Bulk capacitor and Minimum Bulk voltage
@@ -34,7 +34,7 @@ Cin = Num/Den
 % relacion de vueltas transformador
 Vbulk_max = sqrt(2) * Vin_max
 Vreflected = 0.8*(Vds_max - 1.3*Vbulk_max)
-Nps = floor(Vreflected / Vout_nom) % se elije el proximo valor menor
+Nps = Vreflected / Vout_nom % se elije el proximo valor menor
 %falta calculo de devanado auxiliar
 
 %tension en el diodo
@@ -49,7 +49,6 @@ Dmax = Num / Den
 Num = Vbulk_min^2*((Nps*Vout_nom)/(Vbulk_min+Nps*Vout_nom))^2;
 Den = 0.2*Pin*fsw;
 Lp = Num / Den
-
 %calculo Ipk mosfet
 Sum1 = (Pin*(Vbulk_min + Nps*Vout_nom)) / (Vbulk_min*Nps*Vout_nom);
 N = (Nps*Vout_nom)/(Vbulk_min+(Nps*Vout_nom));

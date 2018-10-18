@@ -101,6 +101,7 @@ M = Vout_nom * Nps / Vbulk_min;
 Go = (Rout*Nps)/(Rcs*Acs)*(1/(((1-Dmax)^2/tl)+(2*M)+1));
 Godb = 20*log10(Go)
 %calculo cero ESR y Cout
+Cout = 2200e-6;
 wesr_z = 1/(Resr * Cout);
 fesr_z = wesr_z / (2*pi)
 %Calculo cero en semiplano derecho, se calcula para el peor caso, es decir
