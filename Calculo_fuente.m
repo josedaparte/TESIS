@@ -1,24 +1,24 @@
 %control en modo corriente por picos
 % Declaracion de requerimientos
-Vin_min = 90;       % tensiones de entrada Vrms
-Vin_max = 460/sqrt(2);
-Vin_nom = 300/sqrt(2);
+Vin_min = 130;       % tensiones de entrada Vrms
+Vin_max = 265;
+Vin_nom = 220;
 
 fline_nom = 50;     %frecuencia de la linea Hz
 fline_min = 50;
 
-Vout_nom = 108;
-Iout_nom = 1;     %corriente de salida nominal A
-Vripple = 1;        % tension de ripple en V
+Vout_nom = 100;
+Iout_nom = 1.2;     %corriente de salida nominal A
+Vripple = 2;        % tension de ripple en V
 fsw = 100000;       %frecuencia de switch HZ
-rend = 0.9;        %rendimiento
-Rout = 108;
+rend = 0.85;        %rendimiento
+Rout = Vout_nom/Iout_nom;
 %fin requerimentos
 
 %parametros dispositivos utilizados
-Vds_max = 725;      %del MOSFET
+Vds_max = 600;      %del MOSFET
 Vf = 0.7;           %caida en el diodo en directa
-Vbulk_min = 80; % minima tension a la que se escarga el Cbulk
+Vbulk_min = 120; % minima tension a la que se escarga el Cbulk
 Resr = 1.59;       %Resistencia serie equivalente Cout
 %fin parametros dispositivos utilizados
 
