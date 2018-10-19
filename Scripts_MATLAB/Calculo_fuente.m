@@ -19,7 +19,7 @@ Rout = Vout_nom/Iout_nom;
 Vds_max = 600;      %del MOSFET
 Vf = 0.7;           %caida en el diodo en directa
 Vbulk_min = 120; % minima tension a la que se escarga el Cbulk
-Resr = 1.59;       %Resistencia serie equivalente Cout
+Resr = 1;       %Resistencia serie equivalente Cout
 %fin parametros dispositivos utilizados
 
 %Bulk capacitor and Minimum Bulk voltage
