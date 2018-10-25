@@ -8,3 +8,7 @@ Posibles mosfet a utilizar tacnolive
 http://www.tecnoliveusa.com/ci-sw2n60-fqp2n60-to220-mosfet-600v-2a-1001678694xJM
 http://www.tecnoliveusa.com/fqpf5n60c-5n60c-5n60-mosfet-nch-600v-45a-to220f-1001688706xJM
 https://electronics.stackexchange.com/questions/279136/sensitivity-of-schottky-diodes-to-esd-effectiveness-vs-tvs-diodes
+
+
+TRAAINING TEXAS (videos donde explica paso a paso la fuente)
+https://training.ti.com/search-catalog/categories/applications-designs?keywords=current+mode+control&start%5Bdate%5D=&end%5Bdate%5D=
