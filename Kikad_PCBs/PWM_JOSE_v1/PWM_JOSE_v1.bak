@@ -64,7 +64,7 @@ U 1 1 5BD230EE
 P 8300 3550
 F 0 "C8" H 8325 3650 50  0000 L CNN
 F 1 "CcmpZ" H 8325 3450 50  0000 L CNN
-F 2 "" H 8338 3400 50  0001 C CNN
+F 2 "Capacitors_THT:CP_Axial_L10.0mm_D4.5mm_P15.00mm_Horizontal" H 8338 3400 50  0001 C CNN
 F 3 "" H 8300 3550 50  0001 C CNN
 	1    8300 3550
 	0    1    1    0   
@@ -75,7 +75,7 @@ U 1 1 5BD23340
 P 7450 4150
 F 0 "U3" H 7550 4501 50  0000 L BNN
 F 1 "TL431" H 7550 3750 50  0000 L BNN
-F 2 "TO-92" H 7450 4150 50  0001 L BNN
+F 2 "" H 7450 4150 50  0001 L BNN
 F 3 "None" H 7450 4150 50  0001 L BNN
 F 4 "Texas Instruments" H 7450 4150 50  0001 L BNN "Campo4"
 F 5 "None" H 7450 4150 50  0001 L BNN "Campo5"
@@ -278,7 +278,7 @@ U 1 1 5BD23F78
 P 3050 2050
 F 0 "U1" H 2838 2711 50  0000 L BNN
 F 1 "UC2844N" H 2932 1054 50  0000 L BNN
-F 2 "DIP254P762X508-8" H 3050 2050 50  0001 L BNN
+F 2 "" H 3050 2050 50  0001 L BNN
 F 3 "Texas Instruments" H 3050 2050 50  0001 L BNN
 F 4 "https://www.digikey.com/product-detail/en/texas-instruments/UC2844N/296-27145-5-ND/1910597?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol" H 3050 2050 50  0001 L BNN "Campo4"
 F 5 "PDIP-8 Texas Instruments" H 3050 2050 50  0001 L BNN "Campo5"
