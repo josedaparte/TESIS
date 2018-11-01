@@ -7,8 +7,8 @@ Vin_nom = 220;
 fline_nom = 50;     %frecuencia de la linea Hz
 fline_min = 50;
 
-Vout_nom = 100;
-Iout_nom = 1.2;     %corriente de salida nominal A
+Vout_nom = 80;
+Iout_nom = 1.5;     %corriente de salida nominal A
 Vripple = 2;        % tension de ripple en V
 fsw = 100000;       %frecuencia de switch HZ
 rend = 0.85;        %rendimiento
