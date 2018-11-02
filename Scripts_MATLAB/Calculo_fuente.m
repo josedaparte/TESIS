@@ -20,6 +20,8 @@ Vds_max = 600;      %del MOSFET
 Vf = 0.7;           %caida en el diodo en directa
 Vbulk_min = 120; % minima tension a la que se escarga el Cbulk
 Resr = 1;       %Resistencia serie equivalente Cout
+Vzener = 10;        %tension nominal del zener que alimenta al TL431
+CTR = 1;
 %fin parametros dispositivos utilizados
 
 %Bulk capacitor and Minimum Bulk voltage
@@ -111,7 +113,7 @@ wp2 = fsw * pi;
 
 %9.2.2.10.2 COMPENZACION DE PENDIENTE
 Mc = (1/pi+0.5)/(1 - Dmax);
-Sn = (Vin_min*Rcs)/Lp;
+Sn = (Vbulk_min*Rcs)/Lp;
 Se = (Mc - 1)* Sn;
 
 ton_min = Dmax / fsw;
@@ -122,6 +124,8 @@ Rcsf = Rramp / (Sosc/Se - 1)
 
 %Ganancia a lazo abierto
  Gof = (Go * fp1*fp2*fp2)/(fesr_z * -frhp_z);
- Num = Gof * poly([-fesr_z frhp_z]);
- Den = poly([-fp1 -fp2 -fp2]);
- bode(Num,Den)
+ Num_ol = Gof * poly([-fesr_z frhp_z]);
+ Den_ol = poly([-fp1 -fp2 -fp2]);
+ bode(Num_ol,Den_ol)
+ 
+ %Calculos realimentacion

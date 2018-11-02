@@ -18,6 +18,9 @@ Rout = 3;
 Vds_max = 650;      %del MOSFET
 Vf = 0.6;           %caida en el diodo en directa
 Resr = 43e-3;       %Resistencia serie equivalente Cout
+Vzener = 10;        %tension nominal del zener que alimenta al TL431
+CTR = 1;
+
 %fin parametros dispositivos utilizados
 
 %Bulk capacitor and Minimum Bulk voltage
@@ -67,11 +70,11 @@ Iavg_diode = Iout_nom;
 Num = Iout_nom*Nps*Vout_nom;
 Den = (0.001)*Vout_nom*fsw*(Vbulk_min+Nps*Vout_nom); %el ripple se divide en 100 para pasarlo a porciento
 Cout = Num / Den; %se toma el mayor estandar cercano;
-fprintf(1,'Cout calculado = %f, se pone 2200uF por ser estandar',Cout);
+fprintf(1,'Cout calculado = %f, se pone 2200uF por ser estandar\n',Cout);
 Cout = 2200e-6;
 %9.2.2.5 red sensora de corriente
 Rcs = 1 / Ipk_mosfet;
-fprintf(1,'Rcs calculado = %f, se pone 0.75Ohm por ser estandar',Rcs);
+fprintf(1,'Rcs calculado = %f, se pone 0.75Ohm por ser estandar\n',Rcs);
 Rcs = 0.75;
 %9.2.2.6
 Rg = 10;
@@ -101,7 +104,6 @@ M = Vout_nom * Nps / Vbulk_min;
 Go = (Rout*Nps)/(Rcs*Acs)*(1/(((1-Dmax)^2/tl)+(2*M)+1));
 Godb = 20*log10(Go)
 %calculo cero ESR y Cout
-Cout = 2200e-6;
 wesr_z = 1/(Resr * Cout);
 fesr_z = wesr_z / (2*pi)
 %Calculo cero en semiplano derecho, se calcula para el peor caso, es decir
@@ -119,20 +121,69 @@ wp2 = fsw * pi;
 
 %9.2.2.10.2 COMPENZACION DE PENDIENTE
 Mc = (1/pi+0.5)/(1 - Dmax);
-Sn = (Vin_min*Rcs)/Lp;
+Sn = (Vbulk_min*Rcs)/Lp;
 Se = (Mc - 1)* Sn;
 
 ton_min = Dmax / fsw;
 Sosc = 1.7 / ton_min;
 Cramp = 10e-12;
 Rramp = 24900;
-Rcsf = Rramp / (Sosc/Se - 1)
+Rcsf = Rramp / (Sosc/Se - 1);
+
 
 %Ganancia a lazo abierto
  Gof = (Go * fp1*fp2*fp2)/(fesr_z * -frhp_z);
- Num = Gof * poly([-fesr_z frhp_z]);
- Den = poly([-fp1 -fp2 -fp2]);
- bode(Num,Den)
+ Num_ol = Gof * poly([-fesr_z frhp_z]);
+ Den_ol = poly([-fp1 -fp2 -fp2]);
+ bode(Num_ol,Den_ol)
+
+%Calculos realimentacion
+fbw = frhp_z / 4;       
+%del bode vemos frecuencia y fase a lazo abierto para el ancho de banda fbw
+Ifb_ref = 1e-3; % se elije este valor porque resulta en el menor error
+%calculos de Rfbu y Rfbb
+Rfbu = (Vout_nom - 2.495) / Ifb_ref;
+Rfbb = (2.495 * Rfbu) / (Vout_nom - 2.495);
+%para dar buen margen de fase se compensa el TL con un cero ubicado a 1/10
+%del BW
+fcomp_z = fbw / 10;
+wcomp_z = 2 * pi * fcomp_z;
+Ccomp_z = 0.01e-6;      %se elije por defecto
+Rcomp_z = 1 / (wcomp_z * Ccomp_z);
+
+%polarizacion del TL431 necesita 10mA, los que se proveen con el zener
+Rtlbias = Vzener / 10e-3;
+%funcion de transferencia del TL431
+Num_tl = [(Rcomp_z*Ccomp_z) 1];
+Den_tl = [(Ccomp_z*Rfbu) 0];
+
+%se agrega un polo a frecuencia del fesr_z o frhp_z, el que sea menor
+if (fesr_z < frhp_z)
+    fcmp_p = fesr_z
+else
+    fcmp_p = frhp_z
+end
+Ropto = 1e3;
+Ccmp_p = 10e-9;
+Rcmp_p = 1 / (2 * pi * fcmp_p * Ccmp_p);
+%con Rfbg se añade ganancia de DC p/ obtener el BW deseado 
+Rfbg = Rcmp_p / 2;  % establece ganancia = 2
+%funcion de transferencia del compensador
+Num_cmp = [Rcmp_p/Rfbg];
+Den_cmp = [(Ccmp_p*Rcmp_p) 1];
+
+%funcion transferencia opto
+Rled = 1300;
+Num_opto = CTR * Ropto / Rled;
+
+Num_total = conv(Num_ol,Num_tl);
+Num_total = Num_opto * conv(Num_total,Num_cmp);
+Den_total = conv(Den_ol,Den_tl);
+Den_total = conv(Den_total,Den_cmp);
+
+%figure
+%bode(Num_total,Den_total)
+
 
 
 
