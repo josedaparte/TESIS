@@ -1,0 +1,24 @@
+Mosfet 
+Ipk = A
+Irms = A	--> MOSFETFQP5N60C_600V_4A5
+
+Vzener = 10V	
+Resr = 0.5ohm			
+Rg = 10ohm	
+Cct=1nF		
+Rrt= 18Kohm	
+Ccsf = 100pF	
+Cramp=10pF	
+Rramp=22kohm	
+Rcsf = 1kohm	
+Rfbu = 100Kohm	2%tolerancia		
+Rfbb = 2.87Kohm	o 3Kohm	2%tolereancia	
+Ccmp_z = 18nF	
+Rcmp_z = 43kohm	
+Rtl_bias = 8.2kohm 1W
+Ccmp_p = 15nF	
+Rcmp_p = 3.3kohm
+Rfbg = 1Kohm	
+Rled = 8.2kohm 1W	
+Ropto = 8.2kohm
+
