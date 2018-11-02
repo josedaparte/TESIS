@@ -132,10 +132,12 @@ Rcsf = Rramp / (Sosc/Se - 1);
 
 
 %Ganancia a lazo abierto
- Gof = (Go * fp1*fp2*fp2)/(fesr_z * -frhp_z);
- Num_ol = Gof * poly([-fesr_z frhp_z]);
- Den_ol = poly([-fp1 -fp2 -fp2]);
+%en hertz
+ Gof = (Go * fp1)/( frhp_z * fesr_z);
+ Num_ol = Gof * conv([1 fesr_z],[-1 frhp_z]);
+ Den_ol = conv([1 fp1],[1/(fp2*fp2) 1/fp2 1]);
  bode(Num_ol,Den_ol)
+
 
 %Calculos realimentacion
 fbw = frhp_z / 4;       
@@ -151,11 +153,10 @@ wcomp_z = 2 * pi * fcomp_z;
 Ccomp_z = 0.01e-6;      %se elije por defecto
 Rcomp_z = 1 / (wcomp_z * Ccomp_z);
 
+
 %polarizacion del TL431 necesita 10mA, los que se proveen con el zener
 Rtlbias = Vzener / 10e-3;
-%funcion de transferencia del TL431
-Num_tl = [(Rcomp_z*Ccomp_z) 1];
-Den_tl = [(Ccomp_z*Rfbu) 0];
+
 
 %se agrega un polo a frecuencia del fesr_z o frhp_z, el que sea menor
 if (fesr_z < frhp_z)
@@ -168,21 +169,28 @@ Ccmp_p = 10e-9;
 Rcmp_p = 1 / (2 * pi * fcmp_p * Ccmp_p);
 %con Rfbg se añade ganancia de DC p/ obtener el BW deseado 
 Rfbg = Rcmp_p / 2;  % establece ganancia = 2
+
+
+%funcion de transferencia del TL431
+Num_tl = [(Rcomp_z*Ccomp_z*2*pi) 1];
+Den_tl = [(Ccomp_z*Rfbu) 0];
+
 %funcion de transferencia del compensador
-Num_cmp = [Rcmp_p/Rfbg];
-Den_cmp = [(Ccmp_p*Rcmp_p) 1];
+Num_cmp = [1];
+Den_cmp = [(1/fcmp_p) 1];
 
 %funcion transferencia opto
 Rled = 1300;
+
 Num_opto = CTR * Ropto / Rled;
 
 Num_total = conv(Num_ol,Num_tl);
-Num_total = Num_opto * conv(Num_total,Num_cmp);
+Num_total = Rcmp_p *Num_opto * conv(Num_total,Num_cmp);
 Den_total = conv(Den_ol,Den_tl);
-Den_total = conv(Den_total,Den_cmp);
+Den_total = Rfbg * conv(Den_total,Den_cmp)*2*pi;
 
-%figure
-%bode(Num_total,Den_total)
+figure
+bode(Num_total,Den_total)
 
 
 
