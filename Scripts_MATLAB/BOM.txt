@@ -2,12 +2,11 @@ Mosfet
 Ipk = A
 Irms = A	--> MOSFETFQP5N60C_600V_4A5
 
-Vzener = 10V	
-Resr = 0.5ohm			
+Vzener = 10V	--				
 Rg = 10ohm	
-Cct=1nF		
+Cct=1nF	--		
 Rrt= 18Kohm	
-Ccsf = 100pF	
+Ccsf = 100pF	--	
 Cramp=10pF	
 Rramp=22kohm	
 Rcsf = 1kohm	

@@ -123,7 +123,7 @@ Se = (Mc - 1)* Sn;
 ton_min = Dmax / fsw;
 Sosc = 1.7 / ton_min;
 Ccsf = 100e-12
-Cramp = 10e-12
+Cramp = 10e-9
 Rramp = 22000
 Rcsf = Rramp / (Sosc/Se - 1)
 Rcsf = 1000
@@ -139,7 +139,7 @@ Rcsf = 1000
 
 %Calculos realimentacion
 fbw = frhp_z / 4;       
-%del bode vemos frecuencia y fase a lazo abierto para el ancho de banda fbw
+%del bode vemos frecuencia y fase a1 lazo abierto para el ancho de banda fbw
 Ifb_ref = 869.3e-6;
 %calculos de Rfbu y Rfbb
 Rfbu = (90 - 2.495) / Ifb_ref
@@ -151,6 +151,7 @@ fcomp_z = fbw / 10;
 wcomp_z = 2 * pi * fcomp_z;
 Ccomp_z = 0.018e-6      %se elije por defecto
 Rcomp_z = 1 / (wcomp_z * Ccomp_z)
+Rcomp_z = 47000
 
 
 %polarizacion del TL431 necesita 10mA, los que se proveen con el zener
