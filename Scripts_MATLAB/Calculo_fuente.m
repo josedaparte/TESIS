@@ -7,10 +7,10 @@ Vin_nom = 220;
 fline_nom = 50;     %frecuencia de la linea Hz
 fline_min = 50;
 
-Vout_nom = 90;
+Vout_nom = 65;
 Iout_nom = 1.5;     %corriente de salida nominal A
 Vripple = 2;        % tension de ripple en V
-fsw = 95555;       %frecuencia de switch HZ
+fsw = 100000;       %frecuencia de switch HZ
 rend = 0.85;        %rendimiento
 Rout = Vout_nom/Iout_nom;
 %fin requerimentos
@@ -57,7 +57,7 @@ Sum1 = (Pin*(Vbulk_min + Nps*Vout_nom)) / (Vbulk_min*Nps*Vout_nom);
 N = (Nps*Vout_nom)/(Vbulk_min+(Nps*Vout_nom));
 Sum2 = (0.5*Vbulk_min/Lp)*(N/fsw);
 clear N;
-Ipk_mosfet = Sum1 + Sum2
+Ipk_mosfet = Sum1 + Sum2;
 %calculo Irms MOSFET
 Irms_mosfet = sqrt(((Dmax^3/3)*(Vbulk_min/(Lp*fsw))^2)-((Dmax*Dmax*Ipk_mosfet*Vbulk_min)/(Lp*fsw))+(Dmax*Ipk_mosfet*Ipk_mosfet))
 
@@ -80,9 +80,9 @@ Rg = 10
 
 
 %9.2.2.8
-Cct=1e-9
-Rrt=1.72/(fsw*Cct)
-Rrt = 18e3
+Cct=1000e-12
+Rrt = 8200
+fsw=1.72*.5/(Cct*Rrt)
 
 %9.2.2.9
 %9.2.2.10.1 POWER STAGE POLOS AND ZEROS
@@ -126,7 +126,7 @@ Ccsf = 100e-12
 Cramp = 10e-9
 Rramp = 22000
 Rcsf = Rramp / (Sosc/Se - 1)
-Rcsf = 1000
+Rcsf = 4200
 
 
 %Ganancia a lazo abierto
@@ -142,7 +142,7 @@ fbw = frhp_z / 4;
 %del bode vemos frecuencia y fase a1 lazo abierto para el ancho de banda fbw
 Ifb_ref = 869.3e-6;
 %calculos de Rfbu y Rfbb
-Rfbu = (90 - 2.495) / Ifb_ref
+Rfbu = (65 - 2.495) / Ifb_ref
 Rfbb = (2.495 * Rfbu) / (90 - 2.495)
 fprintf(1,'se pone como Rfbb = 1.8k y Rfbu=62k por tolerancia, para el diseño final hay que usar los otros\n');
 %para dar buen margen de fase se compensa el TL con un cero ubicado a 1/10
