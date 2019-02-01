@@ -10,7 +10,7 @@ fline_min = 50;
 Vout_nom = 65;
 Iout_nom = 1.5;     %corriente de salida nominal A
 Vripple = 2;        % tension de ripple en V
-fsw = 100000;       %frecuencia de switch HZ
+fsw = 55000;       %frecuencia de switch HZ
 rend = 0.85;        %rendimiento
 Rout = Vout_nom/Iout_nom;
 %fin requerimentos
@@ -30,9 +30,12 @@ Pin = Pout / rend
 
 Num = 2 * Pin * (asin(Vbulk_min / (sqrt(2)*Vin_min))/pi + 0.25);
 Den = (2*Vin_min*Vin_min - Vbulk_min * Vbulk_min) * fline_min;
+fprintf(1,'Valor minimo de capacitor de entrada\n');
 Cin = Num/Den
+Cin = 180e-6;
+fprintf(1,'Se elije %1.2f\n', Cin)
 %fin calculo Cbulk
-Cin = 180e-6
+
 
 % relacion de vueltas transformador
 Vbulk_max = sqrt(2) * Vin_max;

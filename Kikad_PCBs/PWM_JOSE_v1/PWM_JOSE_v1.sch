@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:PWM_JOSE_v1-rescue
 LIBS:power
 LIBS:device
 LIBS:switches
@@ -252,7 +253,7 @@ F 3 "" H 2100 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L UC2844N U1
+L UC2844N-RESCUE-PWM_JOSE_v1 U1
 U 1 1 5BD23F78
 P 3050 2050
 F 0 "U1" H 2838 2711 50  0000 L BNN
