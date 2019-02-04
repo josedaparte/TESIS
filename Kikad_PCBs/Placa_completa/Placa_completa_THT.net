@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "D:\\Usuarios\\josed\\Google Drive\\PROYECTO-PIBES\\Kicad\\Placa_completa\\Placa_completa.sch")
-    (date "01/02/2019 18:37:36")
+    (date "01/02/2019 18:37:41")
     (tool "Eeschema 4.0.7")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
