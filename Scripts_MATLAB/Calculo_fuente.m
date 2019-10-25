@@ -10,7 +10,7 @@ fline_min = 50;
 Vout_nom = 65;
 Iout_nom = 1.5;     %corriente de salida nominal A
 Vripple = 2;        % tension de ripple en V
-fsw = 55000;       %frecuencia de switch HZ
+fsw = 100000;       %frecuencia de switch HZ
 rend = 0.85;        %rendimiento
 Rout = Vout_nom/Iout_nom;
 %fin requerimentos
